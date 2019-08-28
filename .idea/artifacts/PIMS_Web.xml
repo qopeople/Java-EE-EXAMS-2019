@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PIMS:Web">
+    <output-path>$PROJECT_DIR$/out/artifacts/PIMS_Web</output-path>
+    <root id="archive" name="PIMS_Web.war">
+      <element id="artifact" artifact-name="PIMS:Web exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/PIMS/web/WEB-INF/lib/httpcore-4.4.11.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <listener>
+        <listener-class>org.h2.server.web.DbStarter</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>db.url</param-name>
+
+        <param-value>jdbc:h2:~/jpa-demo-db</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.user</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+
+        <param-name>db.password</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.tcpServer</param-name>
+        <param-value>-tcpAllowOthers</param-value>
+    </context-param>
+
+
+
+    <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/console/*</url-pattern>
+    </servlet-mapping>
+
+
+    <resource-ref>
+        <description>My DataSource Reference</description>
+        <res-ref-name>jpa/DSTest</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>loginRegister.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>loginRegister.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LookMessageServlet</servlet-name>
+        <servlet-class>LookServlet.LookMessageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateMessageServlet</servlet-name>
+        <servlet-class>LookServlet.UpdateMessageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePasswordServlet</servlet-name>
+        <servlet-class>LookServlet.UpdatePasswordServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FriendlistServlet</servlet-name>
+        <servlet-class>FriendServlet.FriendlistServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FriendaddServlet</servlet-name>
+        <servlet-class>FriendServlet.FriendaddServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FriendfindServlet</servlet-name>
+        <servlet-class>FriendServlet.FriendfindServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Addsalebook</servlet-name>
+        <servlet-class>SaleSevlert.Addsalebook</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BooklServlet</servlet-name>
+        <servlet-class>BookServlet.BooklServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ShopingServlert</servlet-name>
+        <servlet-class>BuyerServlert.ShopingServlert</servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>ShopdeleteServlet</servlet-name>
+        <servlet-class>BuyerServlert.ShopdeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AddshopingServlet</servlet-name>
+        <servlet-class>BookServlet.AddshopingServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FrienddeleteServlet</servlet-name>
+        <servlet-class>FriendServlet.FrienddeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SaleBookServlert</servlet-name>
+        <servlet-class>SaleSevlert.SaleBookServlert</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaledeleteServlert</servlet-name>
+        <servlet-class>SaleSevlert.SaledeleteServlert</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Oneorderlistsevlet</servlet-name>
+        <servlet-class>BuyerServlert.Oneorderlistsevlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <servlet-class>BuyerServlert.AccountServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/AccountServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>Oneorderlistsevlet</servlet-name>
+        <url-pattern>/Oneorderlistsevlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SaledeleteServlert</servlet-name>
+        <url-pattern>/SaledeleteServlert</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SaleBookServlert</servlet-name>
+        <url-pattern>/SaleBookServlert</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FrienddeleteServlet</servlet-name>
+        <url-pattern>/FrienddeleteServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddshopingServlet</servlet-name>
+        <url-pattern>/AddshopingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ShopdeleteServlet</servlet-name>
+        <url-pattern>/ShopdeleteServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ShopingServlert</servlet-name>
+        <url-pattern>/ShopingServlert</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LookMessageServlet</servlet-name>
+        <url-pattern>/LookMessageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMessageServlet</servlet-name>
+        <url-pattern>/UpdateMessageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePasswordServlet</servlet-name>
+        <url-pattern>/UpdatePasswordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FriendlistServlet</servlet-name>
+        <url-pattern>/FriendlistServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FriendaddServlet</servlet-name>
+        <url-pattern>/FriendaddServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FriendfindServlet</servlet-name>
+        <url-pattern>/FriendfindServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Addsalebook</servlet-name>
+        <url-pattern>/Addsalebook</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name> BooklServlet</servlet-name>
+        <url-pattern>/BooklServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LookBookServlet</servlet-name>
+        <servlet-class>BGBookManager.LookBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckBookServlet</servlet-name>
+        <servlet-class>BGBookManager.CheckBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PassBookServlet</servlet-name>
+        <servlet-class>BGBookManager.PassBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>BGBookManager.DeleteBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LookUserServlet</servlet-name>
+        <servlet-class>BGUserManager.LookUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LookUpdateServlet</servlet-name>
+        <servlet-class>BGUserManager.LookUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>BGUserManager.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>BGUserManager.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LookOrderServlet</servlet-name>
+        <servlet-class>BGOrderManager.LookOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <servlet-class>BGOrderManager.DeleteOrderServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LoginDgut</servlet-name>
+        <servlet-class>logindgut.LoginDgut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginDgut</servlet-name>
+        <url-pattern>/login/dgut</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LookBookServlet</servlet-name>
+        <url-pattern>/LookBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckBookServlet</servlet-name>
+        <url-pattern>/CheckBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PassBookServlet</servlet-name>
+        <url-pattern>/PassBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <url-pattern>/DeleteBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LookUserServlet</servlet-name>
+        <url-pattern>/LookUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LookUpdateServlet</servlet-name>
+        <url-pattern>/LookUpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/UpdateUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/DeleteUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LookOrderServlet</servlet-name>
+        <url-pattern>/LookOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>/DeleteOrderServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LookReturnServlet</servlet-name>
+        <servlet-class>BGReturnManager.LookReturnServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckReturnServlet</servlet-name>
+        <servlet-class>BGReturnManager.CheckReturnServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PassReturnServlet</servlet-name>
+        <servlet-class>BGReturnManager.PassReturnServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteReturnServlet</servlet-name>
+        <servlet-class>BGReturnManager.DeleteReturnServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReturnRequestServlet</servlet-name>
+        <servlet-class>BGReturnManager.ReturnRequestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LookReturnRequestServlet</servlet-name>
+        <servlet-class>BGReturnManager.LookReturnRequestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SnLServlert</servlet-name>
+        <servlet-class>logindgut.SnLServlert</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SnLServlert</servlet-name>
+        <url-pattern>/SnLServlert</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LookReturnServlet</servlet-name>
+        <url-pattern>/LookReturnServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckReturnServlet</servlet-name>
+        <url-pattern>/CheckReturnServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PassReturnServlet</servlet-name>
+        <url-pattern>/PassReturnServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteReturnServlet</servlet-name>
+        <url-pattern>/DeleteReturnServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReturnRequestServlet</servlet-name>
+        <url-pattern>/ReturnRequestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LookReturnRequestServlet</servlet-name>
+        <url-pattern>/LookReturnRequestServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <filter-mapping>
+        <filter-name>TokenFilter</filter-name>
+        <url-pattern>/TokenFilter</url-pattern>
+    </filter-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
